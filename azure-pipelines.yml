@@ -1,18 +1,4 @@
 # Starter pipeline
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'WebApp_SC'
-    subscriptionId: 'aac2dace-173c-4031-b808-fa227d94ae80'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'myResourceGroup'
-    location: 'UAE North'
-    templateLocation: 'Linked artifact'
-    csmFile: 'https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json'
-    csmParametersFile: 'https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json'
-    overrideParameters: '-projectName myARMTest'
-    deploymentMode: 'Incremental'
-    deploymentName: 'DeploymentPipelineTemplate'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -31,3 +17,15 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'WebApp_SC'
+    subscriptionId: 'aac2dace-173c-4031-b808-fa227d94ae80'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'myResourceGroup'
+    location: 'UAE North'
+    templateLocation: 'Linked artifact'
+    csmFile: 'https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json'
+    csmParametersFile: 'https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json'
+    deploymentMode: 'Incremental'
